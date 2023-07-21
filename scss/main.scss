@@ -1,0 +1,65 @@
+* {
+   box-sizing: border-box;
+   margin: 0;
+}
+
+body,
+html {
+   min-height: 100vh;
+   background: linear-gradient(#eef2f2, #e4c0e7);
+   font-family: Verdana, Geneva, Tahoma, sans-serif;
+   font-size: 18px;
+   color: #636565;
+   font-weight: 600;
+   line-height: 1.5;
+}
+
+.body,
+.header,
+.main {
+   padding: 0 calc(50vw - 600px);
+}
+
+.title {
+   margin: 40px;
+   text-align: center;
+}
+
+.section {
+   &__title {
+      text-align: center;
+      margin: 50px 0 20px;
+   }
+}
+
+.show {
+   height: 20vh;
+   width: 100%;
+   border: 3px solid rgb(226, 110, 212);
+   padding: 10px;
+   border-radius: 10px;
+}
+
+.hide {
+   display: none;
+   width: 1px;
+   height: 1px;
+}
+
+textarea {
+   font-family: Verdana, Geneva, Tahoma, sans-serif;
+   font-size: 18px;
+   line-height: 1.5;
+   background: rgb(35, 154, 201);
+   color: #ffffff;
+}
+
+table {
+   margin: 30px auto;
+}
+
+td {
+   padding: 20px 30px;
+   font-size: 18px;
+   border: 2px solid rgb(35, 154, 201);
+}
