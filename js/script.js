@@ -52,6 +52,70 @@ function saveElementAfterClickCtrlS() {
 }
 saveElementAfterClickCtrlS();
 
+///------------TASK 2 --------------//////
+let salaryList = [
+   {
+      name: "Olga",
+      position: "seller",
+      salary: 35000,
+   },
+   {
+      name: "Olena",
+      position: "manager",
+      salary: 45000,
+   },
+   {
+      name: "Max",
+      position: "clerk",
+      salary: 25000,
+   },
+   {
+      name: "Ivan",
+      position: "director",
+      salary: 40000,
+   },
+   {
+      name: "Olexandr",
+      position: "engineer",
+      salary: 21000,
+   },
+];
+
+let rowTable = document.querySelector(".rows");
+let person = document.querySelector(".person");
+let position = document.querySelector(".position");
+let salary = document.querySelector(".salary");
+let table = document.querySelector(".table");
+
+function fillTable(arr) {
+   arr.forEach((item, i) => {
+      rowTable.innerHTML += `<tr>
+                              <td>${i + 1}</td>   
+                              <td>${item.name}</td> 
+                              <td>${item.position}</td>
+                              <td>${item.salary}</td>
+                              </tr>`;
+   });
+}
+
+fillTable(salaryList);
+
+function sortTable() {
+   table.addEventListener("click", (event) => {
+      if (event.target.className === "person") {
+         salaryList.sort((a, b) => (a.name > b.name ? 1 : -1));
+      } else if (event.target.className === "position") {
+         salaryList.sort((a, b) => (a.position > b.position ? 1 : -1));
+      } else if (event.target.className === "salary") {
+         salaryList.sort((a, b) => a.salary - b.salary);
+      }
+      rowTable.innerHTML = "";
+      fillTable(salaryList);
+   });
+}
+
+sortTable();
+
 ///-------------TASK 3 -------------//////
 
 // // newDiv.addEventListener('mousedown', resizeDiv);
@@ -63,35 +127,3 @@ saveElementAfterClickCtrlS();
 //    body.addEventListener('mousemove', start);
 //    body.addEventListener("mousemove", finish);
 // }
-
-///------------TASK 2 --------------//////
-
-let personArr = ["Olga", "Olena", "Max", "Ivan", "Olexandr"];
-let positionArr = ["manager", "seller", "clerk", "director", "engineer"];
-let salaryArr = [15000, 20000, 25000, 40000, 21000];
-let rowTable = document.querySelector(".rows");
-let person = document.querySelector(".person");
-let position = document.querySelector(".position");
-let salary = document.querySelector(".salary");
-let table = document.querySelector(".table");
-
-function fillTable(arr1, arr2, arr3) {
-   arr1.forEach((item, i) => {
-      rowTable.innerHTML += `<tr>
-                              <td>${i + 1}</td>   
-                              <td>${item}</td> 
-                              <td>${arr2[i]}</td>
-                              <td>${arr3[i]}</td>
-                              </tr>`;
-   });
-}
-
-fillTable(personArr, positionArr, salaryArr);
-
-table.addEventListener("click", (event) => {
-   if (event.target === "person") {
-      personArr.sort();
-   }
-   rowTable.innerHTML = "";
-   fillTable(personArr, positionArr, salaryArr);
-});
